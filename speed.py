@@ -37,9 +37,9 @@ class SpeedCalc(QWidget):
         self.setLayout(grid)
 
     def calculate_speed(self):
-        distance = int(self.distance.text())
+        distance = float(self.distance.text())
         distance = distance if 'Metric' == self.system.currentText() else distance * 1.609344
-        speed = distance / int(self.time.text())
+        speed = distance / float(self.time.text())
         speed_units = 'km/h' if 'Metric' == self.system.currentText() else 'mph'
 
         self.output.setText(f"Average speed is {speed:.2f} {speed_units}")
